@@ -38,6 +38,12 @@ html, body {
             font-weight: bold;
             text-align: center;
         }
+        & > button.plus {
+            grid-area: plus;
+        }
+        & > button.minus {
+            grid-area: minus;
+        }
     }
 
 }

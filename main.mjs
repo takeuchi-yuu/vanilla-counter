@@ -1,14 +1,14 @@
-let plusButton = document.getElementById("plus");
-let minusButton = document.getElementById("minus");
-let countElem = document.getElementById("count");
+let plusButton = document.querySelector("button.plus");
+let minusButton = document.querySelector("button.minus");
+let countElem = document.querySelector("span.count");
 let count = 0;
 
-document.addEventListener(plusButton, ()=>{
+plusButton.addEventListener("click", ()=>{
     count += 1;
     countElem.textContent = count;
 });
 
-document.addEventListener(minusButton, ()=>{
+minusButton.addEventListener("click", ()=>{
     count -= 1;
     countElem.textContent = count;
 });
