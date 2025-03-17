@@ -1,49 +1,69 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html, body {
-    width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-    touch-action: manipulation;
+:root {
+  --color-primary: #f44756;
+  --color-secondary: #e1e1e1;
+}
+
+html,
+body {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  touch-action: manipulation;
 }
 
 .app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > span {
+    height: 32px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  & > div.counter-container {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & > span{
-        height: 32px;
-        font-size: 24px;
-        font-weight: bold;
+    width: 100%;
+    display: grid;
+    grid-template:
+      ". count ." 32px
+      "minus . plus" 32px
+      / 1fr 100px 1fr;
+    gap: 8px;
+    place-content: center;
+    & > span.count {
+      width: 100%;
+      grid-area: count;
+      font-weight: bold;
+      text-align: center;
     }
-
-    & > div.counter-container {
-        height: 100%;
-        width: 100%;
-        display: grid;
-        grid-template: ". count ." 32px
-                       "minus . plus" 32px
-                       / 1fr 100px 1fr;
-        gap: 8px;
-        place-content: center;
-        & > span.count {
-            width: 100%;
-            grid-area: count;
-            font-weight: bold;
-            text-align: center;
-        }
-        & > button.plus {
-            grid-area: plus;
-        }
-        & > button.minus {
-            grid-area: minus;
-        }
+    & > button.plus {
+      margin-right: auto;
+      grid-area: plus;
     }
-
+    & > button.minus {
+      margin-left: auto;
+      grid-area: minus;
+    }
+    & > button.plus,
+    button.minus {
+      width: 32px;
+      height: 32px;
+      border-radius: 100vh;
+      border: none;
+      cursor: pointer;
+      background-color: var(--color-secondary);
+      &:hover {
+        background-color: var(--color-primary);
+      }
+    }
+  }
 }
