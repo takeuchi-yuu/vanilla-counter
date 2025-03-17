@@ -28,15 +28,16 @@ html, body {
         width: 100%;
         display: grid;
         grid-template: ". count ." 32px
-                       "plus . minus" 32px
+                       "minus . plus" 32px
                        / 1fr 100px 1fr;
         gap: 8px;
         place-content: center;
+        & > span.count {
+            width: 100%;
+            grid-area: count;
+            font-weight: bold;
+            text-align: center;
+        }
     }
-    & > span.count {
-        width: 100%;
-        grid-area: count;
-        font-weight: bold;
-        text-align: center;
-    }
+
 }
